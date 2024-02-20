@@ -50,7 +50,6 @@ contract HalbornToken_Test is Test {
         token.setLoans(address(this));
         assertEq(token.halbornLoans(), address(this));
 
-        address sadDev = address(0x314);
         vm.startPrank(sadDev);
         vm.expectRevert();
         token.setLoans(address(0x10));

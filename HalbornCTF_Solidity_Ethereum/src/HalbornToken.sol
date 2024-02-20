@@ -6,13 +6,11 @@ import {Initializable} from "openzeppelin-contracts-upgradeable/contracts/proxy/
 import {UUPSUpgradeable} from "openzeppelin-contracts-upgradeable/contracts/proxy/utils/UUPSUpgradeable.sol";
 import {OwnableUpgradeable} from "openzeppelin-contracts-upgradeable/contracts/access/OwnableUpgradeable.sol";
 import {MulticallUpgradeable} from "./libraries/Multicall.sol";
-import "forge-std/console.sol";
 
 contract HalbornToken is Initializable, ERC20Upgradeable, UUPSUpgradeable, OwnableUpgradeable, MulticallUpgradeable {
     address public halbornLoans;
 
     modifier onlyLoans() {
-        console.log("msg.sender: ", msg.sender);
         require(msg.sender == halbornLoans, "Caller is not HalbornLoans");
         _;
     }

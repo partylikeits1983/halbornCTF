@@ -8,8 +8,6 @@ import {UUPSUpgradeable} from "openzeppelin-contracts-upgradeable/contracts/prox
 import {Initializable} from "openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol";
 import {MulticallUpgradeable} from "./libraries/Multicall.sol";
 
-import "forge-std/console.sol";
-
 contract HalbornLoans is Initializable, UUPSUpgradeable, MulticallUpgradeable {
     HalbornToken public token;
     HalbornNFT public nft;
@@ -66,8 +64,9 @@ contract HalbornLoans is Initializable, UUPSUpgradeable, MulticallUpgradeable {
     function _authorizeUpgrade(address) internal override {}
 
     // BUG on ERC721Received was not implemented...
-    function onERC721Received(address operator, address from, uint256 tokenId, bytes calldata data)
+    function onERC721Received(address , address , uint256 , bytes calldata )
         external
+        pure
         returns (bytes4)
     {
         return this.onERC721Received.selector;

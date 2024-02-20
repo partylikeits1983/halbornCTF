@@ -9,8 +9,6 @@ import {MerkleProofUpgradeable} from
     "openzeppelin-contracts-upgradeable/contracts/utils/cryptography/MerkleProofUpgradeable.sol";
 import {MulticallUpgradeable} from "./libraries/Multicall.sol";
 
-import "forge-std/console.sol";
-
 contract HalbornNFT is Initializable, ERC721Upgradeable, UUPSUpgradeable, OwnableUpgradeable, MulticallUpgradeable {
     bytes32 public merkleRoot;
 
